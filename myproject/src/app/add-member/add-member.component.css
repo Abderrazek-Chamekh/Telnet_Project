@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  animation: art 0.7s ease-in;
+}
+@keyframes art {
+  0% {
+    opacity: 30%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.bg {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../../assets/img/add.webp");
+  background-size: cover;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.title {
+  color: rgb(125, 125, 125);
+  padding-top: 25px;
+  text-align: center;
+  font-size: 4rem;
+  font-family: serif;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  margin-top: 45px;
+}
+
+.side-by-side {
+  background: transparent;
+
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.add_member {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 48%;
+  background: transparent;
+}
+
+/* Style the user list container */
+.members_list {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 48%;
+  background: transparent;
+}
+
+/* Style the form elements */
+.form_input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Style the buttons */
+.btn_add_member {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#btn {
+  padding: 10px 20px;
+}
+
+#btn_remove {
+  margin-top: 5px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.table th {
+  background-color: #f5f5f5;
+}
+
+.icon-close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 45px;
+  height: 45px;
+  background-color: rgba(0, 0, 0, 0.315);
+  font-size: 2rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1;
+  transition: 0.6s;
+}
+.icon-close:hover {
+  background: black;
+  color: red;
+}
+#rad1 {
+  margin-top: 15px;
+  padding-left: 150px;
+}
+#rad2 {
+  margin-top: 15px;
+  padding-left: 150px;
+}
+
+/* ... rest of your CSS ... */
+
+/*
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@keyframes art {
+  0% {
+    opacity: 30%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+.container {
+  padding-top: 40px;
+  padding-left: 100px;
+}
+.form_input {
+  width: 400px;
+  font-size: 20px;
+  border: solid black;
+  border-radius: 10px;
+  text-align: center;
+  height: 50px;
+}
+#btn {
+  height: 50px;
+  width: 150px;
+}
+.btn_add_member {
+  margin-top: 30px;
+  margin-left: 50px;
+}
+*/

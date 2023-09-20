@@ -1,0 +1,136 @@
+<div class="bg">
+  <span class="icon-close" (click)="goToHome()"
+    ><ion-icon name="close"></ion-icon
+  ></span>
+
+  <div class="title">Testing Area</div>
+
+  <div class="container">
+    <div class="row" id="btn_add">
+      <button class="btn btn-secondary" id="add_test" (click)="addRow()">
+        Add Test
+      </button>
+    </div>
+    <div class="row">
+      <table class="table table-bordered table-dark">
+        <thead>
+          <tr></tr>
+          <tr>
+            <th>Action</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Time Limit</th>
+            <th>Supervisor</th>
+            <th>%Accomplished</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody id="new_row">
+          <tr *ngFor="let row of rows">
+            <div *ngIf="row.Is_Validated; then thenBlock"></div>
+            <ng-template #thenBlock>
+              <td id="normal_input">{{ row.Action }}</td>
+              <td id="other_input">{{ row.Status }}</td>
+              <td id="other_input">{{ row.Priority }}</td>
+              <td id="other_input">{{ row.Time_Limit }}</td>
+              <td id="other_input">{{ row.Responsible }}</td>
+              <td id="pourcentage">
+                <div class="progress" style="height: 80px">
+                  <div
+                    class="progress-bar bg-success"
+                    role="progressbar"
+                    [style.width.%]="row.Accomplished"
+                    aria-valuenow="25"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    {{ row.Accomplished }}%
+                  </div>
+                </div>
+              </td>
+              <td id="normal_input">{{ row.Remarks }}</td>
+            </ng-template>
+          </tr>
+          <tr *ngIf="first_row">
+            <td>
+              <textarea
+                name=""
+                id="normal_input"
+                [(ngModel)]="Action"
+                style="color: black"
+              ></textarea>
+            </td>
+            <td class="dropdown">
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                [(ngModel)]="Status"
+                style="color: black"
+              >
+                <option selected></option>
+                <option value="Open" id="open">Open</option>
+                <option value="Closed" id="closed">Closed</option>
+                <option value="Cancelled" id="canceled">Cancelled</option>
+              </select>
+            </td>
+            <td class="dropdown">
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                [(ngModel)]="Priority"
+                style="color: black"
+              >
+                <option selected></option>
+                <option value="Low" id="low">Low</option>
+                <option value="Normal" id="normal">Normal</option>
+                <option value="High" id="hight">High</option>
+                <option value="Urgent" id="urgent">Urgent</option>
+                <option value="Immediate" id="Immediate">Immediate</option>
+              </select>
+            </td>
+            <td>
+              <input
+                type="text"
+                class="center_input"
+                [(ngModel)]="Time_Limit"
+                style="color: black"
+                placeholder="jj/mm/aaaa"
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="center_input"
+                [(ngModel)]="Responsible"
+                style="color: black"
+              />
+            </td>
+
+            <td>
+              <input
+                type="text"
+                class="center_input"
+                [(ngModel)]="Accomplished"
+                style="color: black"
+                placeholder="%"
+              />
+            </td>
+            <td>
+              <textarea
+                name=""
+                id="normal_input"
+                [(ngModel)]="Remarks"
+                style="color: black"
+              ></textarea>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row" id="btn_send">
+      <button class="btn btn-success" id="send" (click)="saveTest()">
+        Send
+      </button>
+    </div>
+  </div>
+</div>

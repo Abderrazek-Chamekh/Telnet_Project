@@ -1,0 +1,36 @@
+<div class="bg">
+  <div class="wrapper">
+    <div class="form-box login">
+      <h2>login</h2>
+      <form>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="mail"></ion-icon></span>
+          <input
+            type="email"
+            name="email"
+            required
+            [(ngModel)]="member.email"
+            (keydown.enter)="login()"
+          />
+          <label>Email</label>
+        </div>
+
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+          <input
+            type="password"
+            name="password"
+            required
+            [(ngModel)]="member.password"
+            (keydown.enter)="login()"
+          />
+          <label>Password</label>
+        </div>
+
+        <div>
+          <button type="button" class="btn" (click)="login()">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

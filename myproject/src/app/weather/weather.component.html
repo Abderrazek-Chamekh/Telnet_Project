@@ -1,0 +1,51 @@
+<div class="bg">
+  <span class="icon-close" (click)="goToHome()"
+    ><ion-icon name="close"></ion-icon
+  ></span>
+  <div class="title">Meteorological Info</div>
+  <div class="container" *ngIf="weeklyWeatherData">
+    <div class="row">
+      <div class="col-6" *ngFor="let day of weeklyWeatherData">
+        <div class="card1" id="card" style="width: 600px">
+          <div class="card-body">
+            <h5 class="card-title" id="titre"></h5>
+            <p class="banner">
+              Here are <span class="titre">{{ day.date }}</span> meteorological
+              informations for
+              <span class="titre">{{ cityName }}</span>
+            </p>
+            <div class="weather_items">
+              <ul>
+                <li>
+                  Temprature : <span>{{ day.day.avgtemp_c }}°C</span>
+                </li>
+                <li>
+                  Wind-Speed: <span>{{ day.day.maxwind_kph }} km/h</span>
+                </li>
+                <li>
+                  Wind-direction: <span>{{ day.day.wind_dir }} km/h</span>
+                </li>
+                <li>
+                  Humidity: <span>{{ day.day.avghumidity }}%</span>
+                </li>
+                <li>
+                  Visibility: <span>{{ day.day.avgvis_km }} km</span>
+                </li>
+                <li>
+                  Atmospheric Pressure: <span>{{ day.day.avgtemp_c }} hPa</span>
+                </li>
+                <li>
+                  Precipitation: <span>{{ day.day.totalprecip_mm }} mm</span>
+                </li>
+                <li>
+                  Sunlight and Solar Radiation:
+                  <span>{{ day.day.sunhour }} hours</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
