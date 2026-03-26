@@ -1,0 +1,33 @@
+services:
+  mongo:
+    image: mongo:6
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - telnet-network
+
+  backend:
+    image: telnet-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/Telnet
+    depends_on:
+      - mongo
+    networks:
+      - telnet-network
+
+  frontend:
+    image: telnet-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - telnet-network
+
+volumes:
+  mongo-data:
+
+networks:
+  telnet-network:
