@@ -36,6 +36,18 @@ pipeline {
                 sh 'docker push $DOCKERHUB_USERNAME/telnet-frontend:latest'
             }
         }
+
+        stage('Deploy to AKS') {
+            steps {
+                withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
+                    sh 'kubectl apply -f k8s/mongo.yml'
+                    sh 'kubectl apply -f k8s/backend.yml'
+                    sh 'kubectl apply -f k8s/frontend.yml'
+                    sh 'kubectl rollout restart deployment/backend'
+                    sh 'kubectl rollout restart deployment/frontend'
+                }
+            }
+        }
     }
 
     post {
