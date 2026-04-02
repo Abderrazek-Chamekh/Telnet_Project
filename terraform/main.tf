@@ -128,3 +128,24 @@ resource "azurerm_linux_virtual_machine" "vm" {
     version   = "latest"
   }
 }
+resource "azurerm_kubernetes_cluster" "aks" {
+  name                = "telnet-aks"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  dns_prefix          = "telnet-aks"
+
+  default_node_pool {
+    name       = "default"
+    node_count = 1
+    vm_size    = "Standard_B2als_v2"
+  }
+
+  identity {
+    type = "SystemAssigned"
+  }
+}
+
+output "kube_config" {
+  value     = azurerm_kubernetes_cluster.aks.kube_config_raw
+  sensitive = true
+}
